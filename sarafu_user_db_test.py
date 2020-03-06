@@ -7,6 +7,10 @@ from datetime import timezone
 from datetime import timedelta
 import getopt
 import sys
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logg = logging.getLogger('main')
 
 
 # process input params
@@ -29,6 +33,8 @@ for o, a in opts:
         dbname=a
     if o == '-u':
         dbuser=a
+
+logg.debug("user %s name %s", dbuser, dbname)
 
 import matplotlib as mpl
 mpl.use('Agg')
